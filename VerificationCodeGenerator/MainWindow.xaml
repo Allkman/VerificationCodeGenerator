@@ -1,0 +1,32 @@
+﻿<Window x:Class="VerificationCodeGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VerificationCodeGenerator"
+        mc:Ignorable="d"
+               Title="MainWindow" Height="620" Width="470">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10">
+            <Label Content="Number of Worker Threads (2-15):"/>
+            <TextBox x:Name="txtThreadCount" Width="100" Margin="0 5"/>
+            <Label x:Name="lblResult" Content=""/>
+            <Button Content="Start Threads" Width="100" Click="StartThreads_Click" Margin="0 5"/>
+            <Button Content="Stop Threads" Width="100" Click="StopThreads_Click" Margin="0 5"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="10">
+            <ListView x:Name="lvResults" Height="450" Width="220" Margin="0 10">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Thread ID" Width="80" DisplayMemberBinding="{Binding ThreadID}" />
+                        <GridViewColumn Header="Data" Width="120" DisplayMemberBinding="{Binding Data}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>
